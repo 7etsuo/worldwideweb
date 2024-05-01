@@ -7,6 +7,13 @@
         "variant": "c",
         "time.h": "c",
         "types.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "htutils.h": "c",
+        "stdio.h": "c",
+        "tcp.h": "c",
+        "*.tcc": "c",
+        "istream": "c",
+        "fstream": "c",
+        "locale": "c"
     }
 }
