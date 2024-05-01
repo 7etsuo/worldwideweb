@@ -1,8 +1,3 @@
-<HEAD>
-</HEAD>
-<BODY>
-<H1>Access Control List Routines</H1>
-<PRE>
 #ifndef HTACL_H
 #define HTACL_H
 
@@ -11,27 +6,20 @@
 #include "HTGroup.h"
 #include "HTAccess.h"
 
-
 #ifdef SHORT_NAMES
-#define	HTAAgAFn	HTAA_getAclFilename
-#define	HTAAoACL	HTAA_openAcl
-#define	HTAAcACL	HTAA_closeAcl
-#define	HTAAgAEn	HTAA_getAclEntry
-#define	HTAAgFAE	HTAA_getFullAclEntry
+#define HTAAgAFn HTAA_getAclFilename
+#define HTAAoACL HTAA_openAcl
+#define HTAAcACL HTAA_closeAcl
+#define HTAAgAEn HTAA_getAclEntry
+#define HTAAgFAE HTAA_getFullAclEntry
 #endif /* SHORT_NAMES */
 
-typedef struct _HTACL {
-    HTList *	methods;
-    GroupDef *	groups;
+typedef struct _HTACL
+{
+    HTList *methods;
+    GroupDef *groups;
 } HTACL;
 
-
-</PRE>
-
-
-<H2>Opening Access Control List File</H2>
-
-<PRE>
 /* PUBLIC						HTAA_openAcl()
 **		OPEN THE ACL FILE FOR THE GIVEN DOCUMENT
 ** ON ENTRY:
@@ -42,8 +30,7 @@ typedef struct _HTACL {
 **	returns		the FILE* to open ACL.
 **			NULL, if ACL not found.
 */
-PUBLIC FILE *HTAA_openAcl PARAMS((CONST char * pathname));
-
+PUBLIC FILE *HTAA_openAcl PARAMS((CONST char *pathname));
 
 /* PUBLIC						HTAA_closeAcl()
 **			CLOSE ACL FILE
@@ -54,12 +41,7 @@ PUBLIC FILE *HTAA_openAcl PARAMS((CONST char * pathname));
 **	returns	nothing.
 */
 PUBLIC void HTAA_closeAcl PARAMS((FILE * acl_file));
-</PRE>
 
-
-<H2>Getting ACL Entry</H2>
-
-<PRE>
 /* PUBLIC						HTAA_getAclEntry()
 **			CONSULT THE ACCESS CONTROL LIST AND
 **			GIVE A LIST OF GROUPS (AND USERS)
@@ -105,18 +87,8 @@ PUBLIC void HTAA_closeAcl PARAMS((FILE * acl_file));
 **	HTAA_readGroupFile()) and after that access authorization
 **	can be checked with function HTAA_userAndInetGroup().
 */
-PUBLIC GroupDef *HTAA_getAclEntry PARAMS((FILE *	acl_file,
-					  CONST char *	pathname,
-					  HTMethod	method));
+PUBLIC GroupDef *HTAA_getAclEntry PARAMS((FILE * acl_file, CONST char *pathname, HTMethod method));
 
-PUBLIC HTACL * HTAA_getFullAclEntry PARAMS((FILE *	acl_file,
-					    CONST char*	pathname));
+PUBLIC HTACL *HTAA_getFullAclEntry PARAMS((FILE * acl_file, CONST char *pathname));
 
-</PRE>
-
-
-<PRE>
 #endif /* not HTACL_H */
-</PRE>
-End of file HTACL.h.
-</BODY>

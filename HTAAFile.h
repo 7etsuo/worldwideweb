@@ -1,65 +1,33 @@
-<HEAD>
-</HEAD>
-<BODY>
-<H1>File Routines For Access Authorization Package</H1>
 
-This module implements the routines used for accessing (and parsing)
-the files used in the access authorization:
-<UL>
-<LI>password file
-<LI>group file
-<LI>access control list (ACL) file
-</UL>
-
-<PRE>
+// This module implements the routines used for accessing (and parsing)
+// the files used in the access authorization:
 
 #ifndef HTAAFILE_H
 #define HTAAFILE_H
 
-#include &lt;stdio.h&gt;	/* FILE */
-#include "HTUtils.h"		/* BOOL, PARAMS, ARGS */
-#include "HTList.h"		/* HTList */
+#include <stdio.h> /* FILE */
+#include "HTUtils.h"        /* BOOL, PARAMS, ARGS */
+#include "HTList.h"         /* HTList */
 
 #ifdef SHORT_NAMES
-#define HTAAFnRe	HTAAFile_nextRec
-#define HTAAFrFi	HTAAFile_readField
-#define HTAAFrLi	HTAAFile_readList
+#define HTAAFnRe HTAAFile_nextRec
+#define HTAAFrFi HTAAFile_readField
+#define HTAAFrLi HTAAFile_readList
 #endif /*SHORT_NAMES*/
-
 
 /* Used field separators */
 
-#define FIELD_SEPARATOR	':'	/* Used to separate fields		*/
-#define LIST_SEPARATOR	','	/* Used to separate items in a list	*/
+#define FIELD_SEPARATOR ':' /* Used to separate fields		*/
+#define LIST_SEPARATOR ','  /* Used to separate items in a list	*/
 				/* in group and ALC files.		*/
 
-</PRE>
+// Password, group and ACL are internally read in by the following
+// functions:
+// next record (must be called even after the last field of a record is
+// read to proceed to the next record).
+// colons).
+// comma-separated list of items.
 
-
-<H2>Naming conventions</H2>
-<DL>
-<DT>Record<DD>is an entire line in file.
-<DT>Field<DD>is an entity separated by colons and/or by end-of-line.
-<DT>List<DD>is a field in which there are items separated by commas.
-</DL>
-<P>
-
-<H2>Record-oriented Read Routines</H2>
-
-Password, group and ACL are internally read in by the following
-functions:
-<DL>
-<DT><CODE>HTAAFile_nextRec()</CODE><DD> skips to the beginning of the
-next record (must be called even after the last field of a record is
-read to proceed to the next record).
-<DT><CODE>HTAAFile_readField()</CODE><DD> reads a field (separated by
-colons).
-<DT><CODE>HTAAFile_readList()</CODE><DD> reads a field containing a
-comma-separated list of items.
-</DL>
-<P>
-
-<PRE>
 /* PUBLIC						HTAAFile_nextRec()
 **			GO TO THE BEGINNING OF THE NEXT RECORD
 ** ON ENTRY:
@@ -72,12 +40,11 @@ comma-separated list of items.
 */
 PUBLIC void HTAAFile_nextRec PARAMS((FILE * fp));
 
-
 /* PUBLIC						HTAAFile_readField()
 **		READ A FIELD FROM A PASSWORD, GROUP
 **		OR ACCESS CONTROL LIST FILE
 **		i.e. an item terminated by colon,
-**		end-of-line, or end-of-file. 
+**		end-of-line, or end-of-file.
 ** ON ENTRY:
 **	fp		is the file to read the characters from
 **	contents	is the character array to put the characters
@@ -97,10 +64,7 @@ PUBLIC void HTAAFile_nextRec PARAMS((FILE * fp));
 **			are ignored.  However, contents is always
 **			null-terminated!
 */
-PUBLIC int HTAAFile_readField PARAMS((FILE * fp,
-				      char * contents,
-				      int    max_len));
-
+PUBLIC int HTAAFile_readField PARAMS((FILE * fp, char *contents, int max_len));
 
 /* PUBLIC						HTAAFile_readList()
 **
@@ -115,13 +79,6 @@ PUBLIC int HTAAFile_readField PARAMS((FILE * fp,
 **	returns		the number of items read.
 **
 */
-PUBLIC int HTAAFile_readList PARAMS((FILE *	fp,
-				     HTList *	result,
-				     int	max_len));
-</PRE>
+PUBLIC int HTAAFile_readList PARAMS((FILE * fp, HTList *result, int max_len));
 
-<PRE>
 #endif /* not HTAAFILE_H */
-</PRE>
-End of file HTAAFile.h.
-</BODY>

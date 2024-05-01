@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "ios": "c",
+        "htwild.h": "c",
+        "any": "c",
+        "optional": "c",
+        "variant": "c",
+        "time.h": "c",
+        "types.h": "c",
+        "stdlib.h": "c"
+    }
+}

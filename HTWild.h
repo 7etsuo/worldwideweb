@@ -52,20 +52,17 @@
 
 #include "HTUtils.h"
 
-typedef struct _HTPattern {
-    BOOL		wild;	/* If wildcard before this text */
-    char *		text;	/* Required text after wildcard */
-    struct _HTPattern *	next;	/* Next required text portion */
+typedef struct _HTPattern
+{
+    BOOL wild;               /* If wildcard before this text */
+    char *text;              /* Required text after wildcard */
+    struct _HTPattern *next; /* Next required text portion */
 } HTPattern;
 
-PUBLIC HTPattern * HTPattern_new PARAMS((CONST char * str));
-PUBLIC void	   HTPattern_free PARAMS((HTPattern * pat));
-PUBLIC char *	   HTPattern_match PARAMS((HTPattern *	pat,
-					   HTPattern *	eqv,
-					   CONST char *	act));
-PUBLIC char *	   HTPattern_firstWild PARAMS((HTPattern * pat,
-					       char *	   act));
-PUBLIC BOOL HTPattern_url_match PARAMS((HTPattern *	pat,
-					CONST char *	url));
+PUBLIC HTPattern *HTPattern_new PARAMS((CONST char *str));
+PUBLIC void HTPattern_free PARAMS((HTPattern * pat));
+PUBLIC char *HTPattern_match PARAMS((HTPattern * pat, HTPattern *eqv, CONST char *act));
+PUBLIC char *HTPattern_firstWild PARAMS((HTPattern * pat, char *act));
+PUBLIC BOOL HTPattern_url_match PARAMS((HTPattern * pat, CONST char *url));
 
 #endif /* HTWILD_H */

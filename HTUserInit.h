@@ -1,4 +1,7 @@
+#ifndef HTUSERINIT_H
+#define HTUSERINIT_H
 
+#include "HTUtils.h"
 
 /*
 **	(c) COPYRIGHT MIT 1995.
@@ -11,3 +14,5 @@
 **	>=0 	ok
 */
 PUBLIC int HTUserInit NOPARAMS;
+
+#endif /* HTUSERINIT_H */

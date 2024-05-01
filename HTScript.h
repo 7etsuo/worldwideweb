@@ -1,19 +1,10 @@
-<HTML>
-<HEAD>
-<TITLE>Script Manager</TITLE>
-</HEAD>
-<BODY>
 
-<H1>Script Manager</H1>
 
-<PRE>
 /*
 **	(c) COPYRIGHT MIT 1995.
 **	Please first read the full copyright statement in the file COPYRIGH.
 */
-</PRE>
 
-<PRE>
 #ifndef HTSCRIPT_H
 #define HTSCRIPT_H
 
@@ -33,23 +24,15 @@
 **
 **			is called as:
 **
-**			    <HTBinDir>/foo /bar/x/y keywords...
 **
 **			and:
 **				/htbin/foo
 **
 **			is called as:
 **
-**			    <HTBinDir>/foo '' keywords...
 **
 ** ON EXIT:
 **	returns		HT_LOADED on success.
 */
-PUBLIC int HTCallScript PARAMS((HTRequest *	req));
+PUBLIC int HTCallScript PARAMS((HTRequest * req));
 #endif
-</PRE>
-
-End of declaration module
-
-</BODY>
-</HTML>

@@ -1,46 +1,33 @@
-<HEAD>
-</HEAD>
-<BODY>
-<H1>Authentication Module</H1>
 
-This is the authentication module. By modifying the function
-<CODE>HTAA_authenticate()</CODE> it can be made to support external
-authentication methods.<P>
+// This is the authentication module.By modifying the function
 
-<PRE>
 #ifndef HTAUTH_H
 #define HTAUTH_H
 
 #include "HTUtils.h"
 #include "HTAAUtil.h"
 
-
 #ifdef SHORT_NAMES
-#define	HTAAauth	HTAA_authenticate
+#define HTAAauth HTAA_authenticate
 #endif /* SHORT_NAMES */
 
-
-/*
-** Server's representation of a user (fields in authentication string)
-*/
-typedef struct {
-    HTAAScheme	scheme;		/* Scheme used to authenticate this user */
-    char *	username;
-    char *	password;
-    char *	inet_addr;
-    char *	timestamp;
-    char *	secret_key;
+    /*
+    ** Server's representation of a user (fields in authentication string)
+    */
+    typedef struct
+{
+    HTAAScheme scheme; /* Scheme used to authenticate this user */
+    char *username;
+    char *password;
+    char *inet_addr;
+    char *timestamp;
+    char *secret_key;
 } HTAAUser;
 
-extern HTAAUser * HTUser;
+extern HTAAUser *HTUser;
 
 #include "HTAAProt.h"
 
-</PRE>
-
-
-<H2>User Authentication</H2>
-<PRE>
 /* SERVER PUBLIC					HTAA_authenticate()
 **			AUTHENTICATE USER
 ** ON ENTRY:
@@ -59,10 +46,5 @@ extern HTAAUser * HTUser;
 **			user.  NO, if authentication fails.
 */
 PUBLIC BOOL HTAA_authenticate PARAMS((HTRequest * req));
-</PRE>
 
-<PRE>
 #endif /* not HTAUTH_H */
-</PRE>
-End of file HTAuth.h.
-</BODY>
