@@ -35,7 +35,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unixlib.h>
+// #include <unixlib.h>
 
 #define MAX_ENTRIES 1000	/* Maxiumun name/value pairs to handle */
 
